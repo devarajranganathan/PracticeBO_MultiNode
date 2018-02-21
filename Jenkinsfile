@@ -14,6 +14,8 @@ pipeline {
               bat(script: 'Wscript "C:\\Devaraj\\Test\\a.vbs"', returnStatus: true, returnStdout: true)
             }
             
+            bat(script: 'Wscript "C:\\Devaraj\\Test\\b.vbs"', returnStatus: true, returnStdout: true)
+            echo '"In Stage Master A - Last step"'
             
           },
           "Slave_A": {
