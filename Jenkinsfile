@@ -5,10 +5,7 @@ pipeline {
       steps {
         parallel(
           "Master_A": {
-            node(label: 'Master') {
-              bat(script: 'Wscript "C:\\Devaraj\\Test\\a.vbs"', returnStatus: true, returnStdout: true)
-            }
-            
+            bat 'Wscript "C:\\Devaraj\\Test\\a.vbs"'
             
           },
           "Slave_A": {
@@ -30,7 +27,7 @@ pipeline {
           },
           "Slave_B": {
             node(label: 'Sid_Machine') {
-              bat(script: 'Wscript "C:\\Devaraj\\Test\\b.vbs""', returnStatus: true, returnStdout: true)
+              bat(script: 'Wscript "C:\\Devaraj\\Test\\b.vbs"', returnStatus: true, returnStdout: true)
             }
             
             
