@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'Master'
+      label 'Sid_Machine'
     }
     
   }
