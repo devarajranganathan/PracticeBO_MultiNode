@@ -10,7 +10,10 @@ pipeline {
       steps {
         parallel(
           "Master_A": {
-            bat 'Wscript "C:\\Devaraj\\Test\\a.vbs"'
+            node(label: 'Master') {
+              bat(script: 'Wscript "C:\\Devaraj\\Test\\a.vbs"', returnStatus: true, returnStdout: true)
+            }
+            
             
           },
           "Slave_A": {
@@ -27,7 +30,10 @@ pipeline {
       steps {
         parallel(
           "Master_B": {
-            bat(script: 'Wscript "C:\\Devaraj\\Test\\b.vbs"', returnStatus: true, returnStdout: true)
+            node(label: 'Master') {
+              bat(script: 'Wscript "C:\\Devaraj\\Test\\b.vbs"', returnStatus: true, returnStdout: true)
+            }
+            
             
           },
           "Slave_B": {
@@ -71,11 +77,17 @@ pipeline {
       steps {
         parallel(
           "Master_D": {
-            bat(script: 'Wscript "C:\\Devaraj\\Test\\d.vbs"', returnStatus: true, returnStdout: true)
+            node(label: 'Master') {
+              bat(script: 'Wscript "C:\\Devaraj\\Test\\d.vbs"', returnStatus: true, returnStdout: true)
+            }
+            
             
           },
           "Master_E": {
-            bat(script: 'Wscript "C:\\Devaraj\\Test\\e.vbs"', returnStatus: true, returnStdout: true)
+            node(label: 'Master') {
+              bat(script: 'Wscript "C:\\Devaraj\\Test\\e.vbs"', returnStatus: true, returnStdout: true)
+            }
+            
             
           }
         )
